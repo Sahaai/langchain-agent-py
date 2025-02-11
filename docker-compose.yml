@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  agent:
+    image: ghcr.io/jjhbk/langchain-agent-py:latest
+    container_name: langchain
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
